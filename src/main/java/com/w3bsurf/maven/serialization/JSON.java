@@ -9,17 +9,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JSON {
 	
+	// Serialize Java object to JSON using ObjectMapper from Jackson library
 	public static void JSONSerialize(ArrayList<TestData> list) {
 		
 		ObjectMapper objectMapper = new ObjectMapper();
 		
 		try {
 			
+			// Measures JSON serialization time
 			long start = System.currentTimeMillis();
 			objectMapper.writeValue(new File("data/testdata.json"), list);
 			long end = System.currentTimeMillis();
-			
-			//System.out.println("Serialized JSON test data is saved in file data/testdata.json");
 			System.out.println("JSON serialization time: " + (end-start) + "ms");
 			
 		} catch (IOException i) {
@@ -27,6 +27,7 @@ public class JSON {
 		}
 	}
 	
+	// Deserializes JSON to Java object using ObjectMapper from Jackson Library
 	public static void JSONDeserialize() {
 
 		ObjectMapper objectMapper = new ObjectMapper();

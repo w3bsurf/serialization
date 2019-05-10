@@ -9,19 +9,20 @@ import java.util.ArrayList;
 
 public class JAVA {
 	
+	// Serialize Java object using ObjectOutputStream
 	public static void JavaSerialize(ArrayList<TestData> list) {
 		
 		try {
 			
 			FileOutputStream fileOut = new FileOutputStream("data/testdata.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			// Measures the time takes to serialize using ObjectOutputStream
 			long start = System.currentTimeMillis();
 			out.writeObject(list);
 			long end = System.currentTimeMillis();
 			out.close();
 			fileOut.close();
 			
-			//System.out.println("Serialized native test data is saved in file data/testdata.ser");
 			System.out.println("Native serialization time: " + (end-start) + "ms");
 			
 		} catch (IOException i) {
@@ -30,12 +31,14 @@ public class JAVA {
 		}
 	}
 	
+	// Deserialize a serialized Java object using ObjectInputStream
 	public static void JavaDeserialize() {
 		
 		try {
 			
 			FileInputStream fileIn = new FileInputStream("data/testdata.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
+			// Measure deserialization time
 			long start = System.currentTimeMillis();
 			ArrayList<TestData> list = (ArrayList<TestData>) in.readObject();
 			long end = System.currentTimeMillis();

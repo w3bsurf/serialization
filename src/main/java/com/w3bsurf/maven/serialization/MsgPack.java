@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MsgPack {
 	
+	// Serializes Java object to MsgPack using ObjectMapper from Jackson Library
 	public static void MsgPackSerialize(ArrayList<TestData> list) {
 		
 		ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
@@ -19,8 +20,6 @@ public class MsgPack {
 			long start = System.currentTimeMillis();
 			objectMapper.writeValue(new File("data/testdata.msgpack"), list);
 			long end = System.currentTimeMillis();
-			
-			//System.out.println("Serialized MessagePack test data is saved in file data/testdata.msgpack");
 			System.out.println("MessagePack serialization time: " + (end-start) + "ms");
 			
 		} catch (IOException i) {
@@ -28,6 +27,7 @@ public class MsgPack {
 		}
 	}
 	
+	// Deserializes MsgPack to Java object using ObjectMapper from Jackson Library
 	public static void MsgPackDeserialize() {
 		
 		ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());

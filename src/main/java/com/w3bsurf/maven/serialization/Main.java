@@ -3,11 +3,13 @@ package com.w3bsurf.maven.serialization;
 import java.util.ArrayList;
 
 public class Main {
-
+	
+	// Tests different Serialization and Deserialization processes and shows statistics
 	public static void main(String[] args) {
 		
 		ArrayList<TestData> list = new ArrayList<TestData>();
 		
+		// Creates test data for Serialization
 		for (int i = 0; i<3000; i++) {
 			list.add(new TestData("DataTitle", "Test Data", i, (i+0.1)));
 		}
@@ -25,7 +27,5 @@ public class Main {
 		JSON.JSONDeserialize();
 		MsgPack.MsgPackDeserialize();
 		YAML.YAMLDeserialize();
-
 	}
-
 }

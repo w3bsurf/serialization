@@ -10,6 +10,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 public class XML {
 
+	// Serializes Java object to XML using XmlMapper from Jackson Library
 	public static void XMLSerialize(ArrayList<TestData> list) {
 		
 		XmlMapper xmlMapper = new XmlMapper();
@@ -20,7 +21,6 @@ public class XML {
 			xmlMapper.writeValue(new File("data/testdata.xml"), list);
 			long end = System.currentTimeMillis();
 			
-			//System.out.println("Serialized XML test data is saved in file data/testdata.xml");
 			System.out.println("XML serialization time: " + (end-start) + "ms");
 			
 		} catch (IOException i) {
@@ -28,6 +28,7 @@ public class XML {
 		}
 	}
 	
+	// Deserializes XML to Java object using XmlMapper from Jackson Library
 	public static void XMLDeserialize() {
 		
 		XmlMapper xmlMapper = new XmlMapper();
